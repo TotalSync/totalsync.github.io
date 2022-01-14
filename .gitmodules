@@ -1,0 +1,3 @@
+[submodule "Boid"]
+	path = Boid
+	url = git@github.com:TotalSync/Boid.git
