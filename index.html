@@ -2,42 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="index_style.css">
-        <script>
-            var DEBUG = false;
-            function openTab(evt, tabName) {
-                // Declare all variables
-                let i, tabcontents, tablinks;
-                            
-                // Get all elements with class="tabcontent" and hide them
-                tabcontents = document.getElementsByClassName("tabcontents");
-                for (i = 0; i < tabcontents.length; i++) {
-                  tabcontents[i].style.display = "none";
-                }
-            
-                // Get all elements with class="tablinks" and remove the class "active"
-                tablinks = document.getElementsByClassName("tablinks");
-                for (i = 0; i < tablinks.length; i++) {
-                  tablinks[i].className = tablinks[i].className.replace(" active", "");
-                }
-            
-                // Show the current tab, and add an "active" class to the button that opened the tab
-                document.getElementById(tabName).style.display = "block";
-                evt.currentTarget.className += " active";
-            }
-
-            //Sets the initial tab
-            window.onload = function() 
-            {
-                if(DEBUG)
-                {
-                    document.getElementById("LipsumTab").click();
-                } 
-                else
-                {
-                    document.getElementById("AboutTab").click();
-                }
-            }
-        </script>
+        <script type="text/javascript" src="index_script.js"></script>
     </head>
     <body>
         <h1 id="MainHeader">Ian Green</h1><h2>An Electrical Engineering student with a wide scope.</h2>
@@ -76,7 +41,8 @@
                 I worked with my team over three years during highschool to help design, build, run, and fix our robots over the course of a competition season. The First Robotics Competition (FRC) I participated in were Stronghold, Steamworks, and PowerUp. I learned many things while in my team. I learned how to communicate and work professionally while under the stresses of a competitive environment. In my final year, I was given the opportunity to be the leader of the design team for our entire team. In this position, it was my job ot oversee the design process and later in the build process, to make sure that the parts created were adhering to the design.
             </p>
         </div>
-        <div id="Lipsum" class="tabcontents">
+
+        <!-- <div id="Lipsum" class="tabcontents">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur ac lectus in volutpat. Nullam volutpat efficitur tincidunt. Phasellus pharetra nisi a nisi suscipit rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec erat leo, feugiat sit amet suscipit nec, egestas eget lorem. Aliquam erat volutpat. Phasellus laoreet turpis non enim dictum, ut facilisis odio semper. Maecenas cursus mi id erat fermentum interdum. Quisque consectetur magna velit, vel lobortis massa lacinia a. Pellentesque vel dictum nunc, vel dapibus magna. Suspendisse at ullamcorper justo. Cras semper dui non erat vehicula, at dapibus enim efficitur. Nullam ultricies dui ut ipsum venenatis maximus.
 
             Mauris consectetur eget nulla ac finibus. Aenean condimentum eu nulla maximus auctor. Quisque mollis hendrerit lacus, ac placerat libero iaculis eget. Sed nec luctus justo. In hac habitasse platea dictumst. Nulla id vestibulum dui, a sollicitudin mi. Etiam efficitur turpis sed libero porttitor, sed scelerisque augue imperdiet. Praesent dui erat, pellentesque sed lobortis quis, consectetur non tellus. Vestibulum ornare mi sit amet finibus fermentum. Sed egestas diam id ultricies suscipit. Aliquam molestie venenatis porttitor. Cras venenatis sodales commodo. Fusce tempor euismod est eget eleifend. Curabitur dapibus velit vitae arcu maximus, in pulvinar metus interdum. Phasellus ut molestie nunc. Pellentesque volutpat massa quis euismod pulvinar.
@@ -86,6 +52,6 @@
             Maecenas tempor felis sed lacinia sodales. Sed congue egestas ex, in tempus sapien. Etiam non rutrum urna. Proin sollicitudin sagittis eros, a volutpat mi imperdiet in. Duis consequat arcu nec justo ullamcorper accumsan. Mauris ut diam libero. Aenean non nulla in ante consequat maximus. Sed vulputate, magna vitae elementum blandit, lacus risus fermentum magna, ac porta turpis purus id nulla. Vivamus a accumsan dui. Etiam at turpis auctor, vehicula mauris eget, aliquam mauris. Ut erat ipsum, varius interdum libero in, pharetra rutrum metus.
             
             Etiam mattis est mauris, a tincidunt augue mollis nec. Aenean porttitor quam ut velit commodo maximus. Sed scelerisque, turpis ut placerat efficitur, odio lorem pharetra purus, nec varius eros felis vel lorem. Nulla pellentesque eu ipsum fermentum porttitor. Donec lacinia tristique risus, vitae interdum elit. Integer malesuada sed augue eu consectetur. Pellentesque id sapien vitae felis aliquet lacinia at a mauris. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus porttitor massa sit amet viverra varius. Duis sagittis venenatis lectus sed rutrum. Sed luctus molestie consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat imperdiet lacus vitae gravida. Pellentesque elementum auctor lectus, vitae dapibus magna feugiat nec.
-        </div>
+        </div> -->
     </body>
 </html>
