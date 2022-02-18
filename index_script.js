@@ -1,4 +1,5 @@
 var DEBUG = false;
+
 function openTab(evt, tabName) {
     // Declare all variables
     let i, tabcontents, tablinks;
@@ -20,7 +21,7 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
-//Resizes the buttons based on the width of the text.
+//Resizes the Nav Buttons based on the width of the text.
 function ResizeText()
 {
   let elements = document.getElementsByClassName("text_centering");
@@ -35,6 +36,8 @@ function ResizeText()
   }
 }
 
+//Helper function for ResizeText()
+//Uses the canvas.measureText() to give an accurate measurement. 
 function getTextWidth(text, font) {
   // re-use canvas object for better performance
   const canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
@@ -44,10 +47,13 @@ function getTextWidth(text, font) {
   return metrics.width;
 }
 
+//Helper function for GetCanvasFontSize
 function getCssStyle(element, prop) {
   return window.getComputedStyle(element, null).getPropertyValue(prop);
 }
 
+// Helper function for getTextWidth()
+// Returns the font details about an element.
 function getCanvasFontSize(el = document.body) {
   const fontWeight = getCssStyle(el, 'font-weight') || 'normal';
   const fontSize = getCssStyle(el, 'font-size') || '16px';
@@ -56,8 +62,7 @@ function getCanvasFontSize(el = document.body) {
 return `${fontWeight} ${fontSize} ${fontFamily}`;
 }
 
-
-//Sets the initial tab
+// Initial Function run on website load.
 window.onload = function() 
 {
     if(DEBUG)
@@ -66,7 +71,8 @@ window.onload = function()
     } 
     else
     {
+      //Sets the initial Tab
       document.getElementById("AboutTab").click();
-      ResizeText();
+      ResizeText(); // Resizes the Nav Buttons.
     }
 }
