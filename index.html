@@ -7,35 +7,60 @@
     <body>
         <h1 id="MainHeader">Ian Green</h1><h2>An Electrical Engineering student with a wide scope.</h2>
         <nav id="banner">
-            <ul>
+            <ul id="navlist">
                 <li>
-                    <input type="button" id="ProjectTab"class="tablinks" value="Projects" onclick="openTab(event, 'Projects');">
+                    <div class="container" onclick="openTab(event, 'Projects');">
+                        <input type="image" src="Resources/Button.png" id="ProjectTab" class="tablinks" onclick="openTab(event, 'Projects');">
+                        <div class="text_centering">Projects</div>
+                    </div>
                 </li>
                 <li>
-                    <input type="button" class="tablinks" value="Boids" onclick="window.location.href = 'Boid/boid_main.html'">
+                    <div class="container" onclick="window.location.href = 'Boid/boid_main.html'">
+                        <input type="image" src="Resources/Button.png" class="tablinks" onclick="window.location.href = 'Boid/boid_main.html'">
+                        <div class="text_centering">Boids</div>
+                    </div>
                 </li>
                 <li>
-                    <input type="button" class="tablinks" value="Resume" onclick="window.location.href = 'Resources/Resume.pdf'">
+                    <div class="container" onclick="window.location.href = 'Resources/Resume.pdf'">
+                        <input type="image" src="Resources/Button.png" class="tablinks" onclick="window.location.href = 'Resources/Resume.pdf'">
+                        <div class="text_centering">Resume</div>
+                    </div>
                 </li>
                 <li>
-                    <input type="button" id="AboutTab" class="tablinks" value="About Me" onclick="openTab(event, 'About Me');">
+                    <div class="container" onclick="openTab(event, 'About Me');">
+                        <input type="image" src="Resources/Button.png" id="AboutTab" class="tablinks" value="About Me" onclick="openTab(event, 'About Me');">
+                        <div class="text_centering">About Me</div>
+                    </div>
                 </li>
-                <!--
-                <li>
-                    <input type="button" id="LipsumTab" class="tablinks" value="Lipsum" onclick="openTab(event, 'Lipsum');">
-                </li>-->
             </ul>
             <hr></hr>
         </nav>
 
         <div id="Projects" class="tabcontents">
             <h2>Projects</h2>
+            
             <h4>Cube Satellite</h4>
+            <hr></hr>
             <p>
                 I have begun working with a classmate on developing a cube satellite. As a step towards that end goal we have been researching satellite design. Additionally we will begin testing our solution by sending them into near space by weather ballon. We hope to launch our first attempt on January 22 2022.
             </p>
+            <h4>Boids</h4>
+            <hr></hr>
+            <p>
+                Boids follow three basic rules. Adhesion, Cohesion, and Repulsion. These simple rules allow for complex behaviors to occur when many of these entities interact. Adhesion makes the boids want to try and stick together and go in the same direction as a neighboring boid. Cohesion makes the boids want to head towards a central point. Repulsion makes the boids not want to exist in the same location. By varying these three constants, different behaviors start to appear depending on the values. In the program I have created, you can edit these three variables by changing a constant and a scalar. I also included a pause button, primarily for debugging, but I decided to keep it, as it is a nice feature. I was introduced to the idea of boids by my roommate Danny.
+            </p>
+            <p>
+                Danny worked on his version of the boids for a while, and I was intrigued by it, so I decided to take up that project as well. In the end, our projects ended up very different, as we were focused on very different parts of the project and we completed it in different ways. Danny created his project in a typical Object Oriented structure, while I created my version using the Entity, Component, System structure. After implementing the basic rules that the boids follow, (Cohesion, Repulsion, and Adhesion) I decided that it would be vert interesting to try and color the boids by the group that they were in. This lead to a number of issues as grouping the boids requires distance calculations between all boids. I began working on what I called the "inefficientGrouping()".
+            </p>
+            <p>
+                The main goal I wanted to accomplish through this algorithm was to be able to be able to easily distinguish the different groups of boids. To do this I had to make groups of boids by finding which boids were close together. If you have 10 boids, to find the distance between each boid, worst case scenario, is 10^10 (100) distance calculations. This number increase greatly as the number of boids increases. I was not just satisfied with grouping the boids together. I wanted there to be some logic to how the boids were grouped. I decided that if two groups combined, the larger group should stay dominate, and the smaller group would join the larger group. Adding logic similar to this to the grouping algorithm proved to be quite a nightmare, as there were many edge cases I had to take into account. In the end, the results were quite surprising. I managed to create a grouping algorithm that could handle 1000 boids before a noticeable performance drop. The algorithm can handle 2500 boids, but only at a framerate of below 20 frames per second.
+            </p>
+            <p>
+                Unfortunately there are still some bugs that I have not been able to squash in my algorithm. Sometimes groups will split, but will still be a part of the same group. I have been unable to determine why this behavior exists. With school ramping back up, I have decided to lay this project to rest for the time being. A link to the project is in the Nav bar at the top of the page.
+            </p>
         </div>
         <div id="About Me" class="tabcontents">
+            <h4>This Website is still under development.</h4>
             <h2>About Me</h2>
             <h4>Early Life and Wired Wizards</h4>
             <image id="Susan" class="float_img" src="Resources/Susan_Robot.JPG" onclick="window.location.href='Resources/Susan_Robot.JPG'">
@@ -46,17 +71,5 @@
                 I worked with my team over three years during highschool to help design, build, run, and fix our robots over the course of a competition season. The First Robotics Competition (FRC) I participated in were Stronghold, Steamworks, and PowerUp. I learned many things while in my team. I learned how to communicate and work professionally while under the stresses of a competitive environment. In my final year, I was given the opportunity to be the leader of the design team for our entire team. In this position, it was my job ot oversee the design process and later in the build process, to make sure that the parts created were adhering to the design. The image on the right is our Robot Susan which was made for First Steamworks.
             </p>
         </div>
-
-        <!-- <div id="Lipsum" class="tabcontents">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur ac lectus in volutpat. Nullam volutpat efficitur tincidunt. Phasellus pharetra nisi a nisi suscipit rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec erat leo, feugiat sit amet suscipit nec, egestas eget lorem. Aliquam erat volutpat. Phasellus laoreet turpis non enim dictum, ut facilisis odio semper. Maecenas cursus mi id erat fermentum interdum. Quisque consectetur magna velit, vel lobortis massa lacinia a. Pellentesque vel dictum nunc, vel dapibus magna. Suspendisse at ullamcorper justo. Cras semper dui non erat vehicula, at dapibus enim efficitur. Nullam ultricies dui ut ipsum venenatis maximus.
-
-            Mauris consectetur eget nulla ac finibus. Aenean condimentum eu nulla maximus auctor. Quisque mollis hendrerit lacus, ac placerat libero iaculis eget. Sed nec luctus justo. In hac habitasse platea dictumst. Nulla id vestibulum dui, a sollicitudin mi. Etiam efficitur turpis sed libero porttitor, sed scelerisque augue imperdiet. Praesent dui erat, pellentesque sed lobortis quis, consectetur non tellus. Vestibulum ornare mi sit amet finibus fermentum. Sed egestas diam id ultricies suscipit. Aliquam molestie venenatis porttitor. Cras venenatis sodales commodo. Fusce tempor euismod est eget eleifend. Curabitur dapibus velit vitae arcu maximus, in pulvinar metus interdum. Phasellus ut molestie nunc. Pellentesque volutpat massa quis euismod pulvinar.
-            
-            Curabitur sed porttitor tortor. Proin vel tellus sed justo pretium scelerisque. Vivamus ut turpis non elit viverra interdum. Vestibulum dignissim in diam vitae lobortis. Aenean luctus elementum felis. Cras consectetur commodo mauris, at consequat ipsum. Cras rhoncus ante sit amet pellentesque porttitor. Mauris eget vulputate urna, nec luctus odio. Nulla dapibus nec lacus vel sodales. Quisque lacinia turpis dui, nec mattis dui posuere vel. Aliquam id ornare augue. Vestibulum sit amet urna ut erat faucibus mollis. Sed vehicula, diam ac placerat molestie, leo ipsum dictum turpis, in ornare sapien odio non sapien. Proin viverra fringilla tellus, non scelerisque nibh finibus ac. Cras euismod lectus sed congue volutpat.
-            
-            Maecenas tempor felis sed lacinia sodales. Sed congue egestas ex, in tempus sapien. Etiam non rutrum urna. Proin sollicitudin sagittis eros, a volutpat mi imperdiet in. Duis consequat arcu nec justo ullamcorper accumsan. Mauris ut diam libero. Aenean non nulla in ante consequat maximus. Sed vulputate, magna vitae elementum blandit, lacus risus fermentum magna, ac porta turpis purus id nulla. Vivamus a accumsan dui. Etiam at turpis auctor, vehicula mauris eget, aliquam mauris. Ut erat ipsum, varius interdum libero in, pharetra rutrum metus.
-            
-            Etiam mattis est mauris, a tincidunt augue mollis nec. Aenean porttitor quam ut velit commodo maximus. Sed scelerisque, turpis ut placerat efficitur, odio lorem pharetra purus, nec varius eros felis vel lorem. Nulla pellentesque eu ipsum fermentum porttitor. Donec lacinia tristique risus, vitae interdum elit. Integer malesuada sed augue eu consectetur. Pellentesque id sapien vitae felis aliquet lacinia at a mauris. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus porttitor massa sit amet viverra varius. Duis sagittis venenatis lectus sed rutrum. Sed luctus molestie consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat imperdiet lacus vitae gravida. Pellentesque elementum auctor lectus, vitae dapibus magna feugiat nec.
-        </div> -->
     </body>
 </html>

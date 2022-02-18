@@ -19,15 +19,54 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+//Resizes the buttons based on the width of the text.
+function ResizeText()
+{
+  let elements = document.getElementsByClassName("text_centering");
+  let buttons = document.getElementsByClassName("tablinks");
+  for(let i = 0; i < elements.length; i++)
+  {
+    let element = elements[i];
+    let button = buttons[i];
+    let width = getTextWidth(element.textContent, getCanvasFontSize());
+    element.width = width;
+    button.width = width + 50;
+  }
+}
+
+function getTextWidth(text, font) {
+  // re-use canvas object for better performance
+  const canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
+  const context = canvas.getContext("2d");
+  context.font = font;
+  const metrics = context.measureText(text);
+  return metrics.width;
+}
+
+function getCssStyle(element, prop) {
+  return window.getComputedStyle(element, null).getPropertyValue(prop);
+}
+
+function getCanvasFontSize(el = document.body) {
+  const fontWeight = getCssStyle(el, 'font-weight') || 'normal';
+  const fontSize = getCssStyle(el, 'font-size') || '16px';
+  const fontFamily = getCssStyle(el, 'font-family') || 'Times New Roman';
+
+return `${fontWeight} ${fontSize} ${fontFamily}`;
+}
+
+
 //Sets the initial tab
 window.onload = function() 
 {
     if(DEBUG)
     {
-        document.getElementById("LipsumTab").click();
+      document.getElementById("LipsumTab").click();
     } 
     else
     {
-        document.getElementById("AboutTab").click();
+      document.getElementById("AboutTab").click();
+      ResizeText();
     }
 }
