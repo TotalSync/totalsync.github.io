@@ -25,14 +25,17 @@ function openTab(evt, tabName) {
 function ResizeText()
 {
   let elements = document.getElementsByClassName("text_centering");
-  let buttons = document.getElementsByClassName("tablinks");
+  let buttons = document.getElementsByClassName("nav_container");
   for(let i = 0; i < elements.length; i++)
   {
     let element = elements[i];
     let button = buttons[i];
     let width = getTextWidth(element.textContent, getCanvasFontSize());
     element.width = width;
-    button.width = width + 50;
+    button.children[1].width = width + 50;
+    let height = button.children[1].height;
+    button.children[0].height = height;
+    button.children[2].height = height;
   }
 }
 

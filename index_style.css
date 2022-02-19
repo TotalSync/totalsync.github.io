@@ -61,14 +61,16 @@ input[type="image"]
     cursor: pointer;
 }
 
-.container
+.nav_container
 {
     height: 100%;
     width: fit-content;
+    float: left;
     position: relative;
     text-align: center;
+    font-size: 0;
 }
-.container:hover
+.nav_container:hover
 {
     filter: opacity(75%);
     color: black;
@@ -84,7 +86,14 @@ input[type="image"]
     left: 50%;
     transform: translate(-50%, -50%);
     color: black;
+    font-size: medium;
     cursor: pointer;
+}
+
+
+.tail_accent
+{
+    transform: rotate(180deg);
 }
 
 
