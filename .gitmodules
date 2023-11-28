@@ -1,3 +1,6 @@
 [submodule "Boid"]
 	path = Boid
 	url = git@github.com:TotalSync/Boid.git
+[submodule "LatticeViewer"]
+	path = LatticeViewer
+	url = git@github.com:TotalSync/LatticeViewer.git
